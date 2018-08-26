@@ -7,22 +7,31 @@ object gimenez {
 	var totalDinero = 0
 	method sueldo() { return sueldo}
 	method sueldo(nuevoValor) { sueldo = nuevoValor }
-	method totalDinero() {return totalDinero}
-	method cobrarSueldo(){ totalDinero =  + self.sueldo() }
+	method totalCobrado() {return totalDinero}
+	method cobrarSueldo(){ totalDinero += self.sueldo() }
 	
 }
 
 
 object baigorria {
-	var cantidadEmpanadasVendidas = 100
+	var cantidadEmpanadasVendidas = 1000
 	var montoPorEmpanada = 15
 	var totalDinero = 0
+	var totalDeuda = 0
 	method venderEmpanada() {
 		cantidadEmpanadasVendidas += 1
 	}
  	
 	method sueldo() = cantidadEmpanadasVendidas * montoPorEmpanada
-	method cobrarSueldo(){ totalDinero =  + self.sueldo() }
+	method cobrarSueldo(){ totalDinero += self.sueldo() - self.totalDeuda()
+		totalDeuda= 0
+	}
+	method totalDinero() {return totalDinero}
+	method totalDeuda() {return totalDeuda }
+	method gastar(cuanto) {
+		if(totalDinero < cuanto) {totalDeuda += cuanto - self.totalDinero()}
+			else {totalDinero = totalDinero - cuanto}
+		}
 }
 
 object galvan {
