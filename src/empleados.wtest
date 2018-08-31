@@ -45,4 +45,10 @@ test"Baigorria cobra su sueldo de 15000 y descuenta la deuda de 22000, quedando 
 	assert.equals(0,baigorria.totalDinero())
 	assert.equals(7000,baigorria.totalDeuda())
 }
+test "gasta la misma plata que tiene guardada"{
+	baigorria.cobrarSueldo()
+	baigorria.gastar(15000)
+	assert.equals(0,baigorria.totalDinero())
+	assert.equals(0,baigorria.totalDeuda())
+}
 }
